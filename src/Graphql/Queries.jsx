@@ -1,20 +1,46 @@
 import { gql } from "@apollo/client";
 
-export const GET_STATEMENT = gql`
+
+
+export const GET_STATEMENT= gql`
   query getStatement($accountNumber: String!) {
     getStatement(accountNumber: $accountNumber) {
-      id
       accountNumber
+      consumerName
+      firstName
+    lastName
+      phoneNumber
+      email
+      province
+      idNumber
+      indigentExpiry
       date
-      description
-      units
-      tariffS
-      valueS
+      isIndigent
+      indigentApplicationDate
+      town
+      suburb
+      ward
+      street
+      postalAddress1
+      postalAddress2
+      postalAddress3
+      postalCode
+      vatNumber
+      deposit
+      marketValue
+      erfNumber
+      taxNumber
+      days120
+      days90
+      days60
+      days30
+      current
+      closingBalance
+      openingBalance
       createdAt
     }
   }
 `;
-
 
 
 export const GET_CASH_PAYMENT = gql`
@@ -121,11 +147,14 @@ export const GET_WATER_TARIFF_DOMESTIC = gql`
 
 
 
+
 export const GET_ALL_STATEMENTS = gql`
 query getAllStatements{
   getAllStatements {
     accountNumber
     consumerName
+    firstName
+    lastName
     phoneNumber
     email
     province
@@ -160,6 +189,23 @@ query getAllStatements{
 `;
 
 
+export const GET_METER_READINGS = gql`
+  query getMeterReadings($accountNumber: String!) {
+    getMeterReadings(accountNumber: $accountNumber) {
+      id
+      accountNumber
+      meterNumber
+      type
+      oldRead
+      newRead
+      consumption
+      leviedAmount
+      createdAt
+    }
+  }
+`;
+
+
 export const GET_SUCCESSFUL_EMAILS_COUNT = gql`
 query getSuccessfulEmailsCount{
   getSuccessfulEmailsCount
@@ -187,5 +233,34 @@ query getFailedSmsCount{
 }
 `
 
+export const GET_USER_NOTIFICATIONS = gql`
+  query getUserNotifications($accountNumber: String!) {
+    getUserNotifications(accountNumber: $accountNumber) {
+      emails {
+        id
+        accountNumber
+        status
+        createdAt
+      }
+      sms {
+        id
+        accountNumber
+        status
+        createdAt
+      }
+    }
+  }
+
+`;
 
 
+export const GET_ALL_PAYMENT_ARRANGEMENTS = gql`
+query getAllPaymentArrangements{
+    getAllPaymentArrangements {
+      accountNumber
+      paymentDate
+      amount
+      createdAt
+    }
+  }
+`;

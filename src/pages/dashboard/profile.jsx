@@ -261,7 +261,7 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
 
         
           
-           /* if(result.data[i].SERVICE === 'PAYMENT'){
+            if(result.data[i].SERVICE === 'PAYMENT'){
               createCashPayment({
                 variables: {
                   accountNumber: result.data[i].ACCOUNT_NO,
@@ -373,7 +373,7 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
   
   
         
-           }*/
+           }
   
 
         }
@@ -437,13 +437,13 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
     
     Papa.parse(file, {
       complete: (result) => {
-        console.log(JSON.stringify(result.data));
+       
        //console.log(JSON.stringify(result.data));
 
        // Iterate through the keys of the current object
 
         
-       /* for(let i = 0; i < result.data.length; i++){
+        for(let i = 0; i < result.data.length; i++){
          
           createMeterReadings({
             variables: {
@@ -457,7 +457,7 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
             },
           });
 
-        } */
+        } 
         //Send data to the database
        
       },
@@ -505,7 +505,8 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
         <Typography variant="h2" className="font-bold mb-4">New Statements</Typography>
         <Typography variant="paragraph" color="blue-gray" className="text-lg font-normal">Upload the CSV files to complete your submission.</Typography>
       </div>
-      <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
+      {statementDetailsLoading || balanceReportLoading || loadingNeterReadings ? (<h1>Uploading data this can take a few minutes...</h1>) : (
+        <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2">
         <div className="mb-1 flex flex-col gap-6">
   
         
@@ -579,6 +580,7 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
 
     
       </form>
+      )}
 
     </div>
     <div className="w-2/5 h-full hidden lg:block">

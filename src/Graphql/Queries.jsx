@@ -264,3 +264,36 @@ query getAllPaymentArrangements{
     }
   }
 `;
+
+
+export const GET_ALL_NOTIFICATIONS = gql`
+query getAllNotifications{
+  getAllNotifications{
+    emails{
+    id
+  accountNumber
+  status
+  createdAt
+    },
+    sms{
+      id
+  accountNumber
+  status
+  createdAt
+    }
+  }
+}
+`;
+
+
+export const GET_FAILED_PAYMENT_REMINDERS_COUNT = gql`
+query getFailedPaymentRemindersCount{
+  getFailedPaymentRemindersCount
+}
+`
+
+export const GET_SUCCESSFUL_PAYMENT_REMINDERS_COUNT = gql`
+query getSuccessfulPaymentRemindersCount{
+  getSuccessfulPaymentRemindersCount
+}
+`

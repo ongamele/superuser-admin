@@ -249,11 +249,11 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
                   erfNumber: '',
                   deposit: result.data[i].DEPOSIT,
                   taxNumber: '',
-                  days120: result.data[i][keysArray[6]],
-                  days90: result.data[i][keysArray[5]],
-                  days60: result.data[i][keysArray[4]],
-                  days30: result.data[i][keysArray[3]],
-                  current: result.data[i][keysArray[2]],
+                  days120: result.data[i][keysArray[15]],
+                  days90: result.data[i][keysArray[14]],
+                  days60: result.data[i][keysArray[13]],
+                  days30: result.data[i][keysArray[12]],
+                  current: result.data[i][keysArray[11]],
                   closingBalance: '',
                   openingBalance: ''
                 },
@@ -438,7 +438,8 @@ const [addBalanceReport, { loading: balanceReportLoading }] = useMutation(ADD_BA
     Papa.parse(file, {
       complete: (result) => {
        
-       //console.log(JSON.stringify(result.data));
+       
+       
 
        // Iterate through the keys of the current object
 

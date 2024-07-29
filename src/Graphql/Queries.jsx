@@ -8,7 +8,7 @@ export const GET_STATEMENT= gql`
       accountNumber
       consumerName
       firstName
-    lastName
+      lastName
       phoneNumber
       email
       province

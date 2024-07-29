@@ -290,11 +290,11 @@ export const CREATE_STATEMENT_DETAILS = gql`
     $erfNumber: String
     $deposit: String
     $taxNumber: String
-    $days120: String
-    $days90: String
-    $days60: String
-    $days30: String
-    $current: String
+    $days120: Float
+    $days90: Float
+    $days60: Float
+    $days30: Float
+    $current: Float
     $closingBalance: String
     $openingBalance: String
   ) {
@@ -523,7 +523,6 @@ export const CREATE_VAT = gql`
 export const CREATE_WATER_TARIFF_DOMESTIC = gql`
   mutation createWaterTariffDomestic(
     $accountNumber: String
-    $meterNumber: String
     $date: String
     $code: String
     $description: String
@@ -534,7 +533,6 @@ export const CREATE_WATER_TARIFF_DOMESTIC = gql`
     createWaterTariffDomestic(
       input: {
         accountNumber: $accountNumber
-        meterNumber: $meterNumber
         date: $date
         code: $code
         description: $description
